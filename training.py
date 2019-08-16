@@ -12,7 +12,7 @@ comments = pickle.load(f)
 f.close()
 
 #Training Bot with existing comments
-for convo in comments[:10000]:
+for convo in comments[:]:
     trainer.train(convo)
 
 #Testing bot
