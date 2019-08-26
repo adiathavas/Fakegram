@@ -39,3 +39,33 @@
 2019-08-16 16:00:26,297 Photo does not have a compatible photo aspect ratio.
 2019-08-16 16:00:58,532 Logged-in successfully as 'portia_res'!
 2019-08-16 16:00:58,533 Photo does not have a compatible photo aspect ratio.
+2019-08-19 16:16:18,611 Logged-in successfully as 'portia_res'!
+2019-08-19 16:17:27,170 Logged-in successfully as 'portia_res'!
+2019-08-19 16:18:57,473 Photo does not have a compatible photo aspect ratio.
+2019-08-20 09:41:41,510 Logged-in successfully as 'portia_res'!
+2019-08-20 09:43:36,651 Logged-in successfully as 'portia_res'!
+2019-08-20 09:46:45,608 Logged-in successfully as 'portia_res'!
+2019-08-20 09:48:59,379 Request returns 429 error!
+2019-08-20 09:48:59,379 That means 'too many requests'. I'll go to sleep for 5 minutes.
+2019-08-20 09:52:57,038 Instabot Started
+2019-08-20 09:53:21,933 Not logged in!
+2019-08-20 09:53:45,891 Request returns 400 error!
+2019-08-20 09:53:45,891 Instagram's error message: The password you entered is incorrect. Please try again.
+2019-08-20 09:53:45,891 Error type: bad_password
+2019-08-20 09:53:45,892 Username or password is incorrect.
+2019-08-20 09:54:48,994 Logged-in successfully as 'portia_res'!
+2019-08-20 09:55:28,996 Error checking for `feedback_required`, response text is not JSON
+2019-08-20 10:02:12,161 Instabot Started
+2019-08-20 10:02:22,387 Logged-in successfully as 'portia_res'!
+2019-08-20 10:03:59,717 Logged-in successfully as 'portia_res'!
+2019-08-20 10:05:05,939 Photo does not have a compatible photo aspect ratio.
+2019-08-20 10:07:00,894 Logged-in successfully as 'portia_res'!
+2019-08-20 10:07:31,344 Logged-in successfully as 'portia_res'!
+2019-08-20 10:10:42,067 Logged-in successfully as 'portia_res'!
+2019-08-20 10:12:50,388 Logged-in successfully as 'portia_res'!
+2019-08-20 12:05:52,730 Logged-in successfully as 'portia_res'!
+2019-08-20 12:06:24,014 Request returns 429 error!
+2019-08-20 12:06:24,014 That means 'too many requests'. I'll go to sleep for 5 minutes.
+2019-08-21 10:53:27,428 Bot stopped. Worked: 1 day, 0:51:15.266839
+2019-08-21 10:53:27,430 Total requests: 3
+2019-08-21 11:20:36,735 Instabot Started

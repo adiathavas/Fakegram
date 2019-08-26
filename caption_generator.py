@@ -1,13 +1,8 @@
-# pull a bunch of images from unsplash using their API
+# all the libraries that I will be using
 
-import os
-import sys
 import urllib.request
-import logging
 from pyunsplash import PyUnsplash
-import requests
 from fastai.vision import *
-import time
 import random
 import re
 from selenium import webdriver
@@ -36,34 +31,32 @@ import uuid
 import requests
 import json
 from requests_toolbelt import MultipartEncoder
+import instabot
+from tqdm import tqdm
+
+# set up and keys and stuff
+
+path_pkl = '/Users/aditya.sharma/Desktop/Fakegram'
+api_key = "cd9ad8287959d3408ee5c1db5486114901cc1a7aa0c19c31529030b78204be51"
+api_key_imagga = "acc_33cc8a8aef4eadd"
+api_key_imagga_secret = "c83c11035b8d2c13b88a7f9b0f674b4f"
+learn = load_learner(path_pkl)
+py_un = PyUnsplash(api_key=api_key)
 
 
-
-
-
-
+# class of Instabot
 class Instabot:
-
+  # TODO: Figure out why browser opens upon intiializatio and how to stop it
   def __init__(self, username, password, device=None, base_path=''):
     self.username = username
+    self.last_json = None
     self.password = password
+    self._usernames = {}  # `username` to `user_id` mapping
+
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36");
-    chrome_options.add_argument("--start-maximized");
+    chrome_options.add_argument("--stzart-maximized");
     chrome_options.add_argument("--disable-infobars")
     self.driver = webdriver.Chrome(options=chrome_options)
-    self.driver.set_window_size(750,900)
-    # firefox_capabilities = webdriver.DesiredCapabilities.FIREFOX
-    # firefox_capabilities['marionette'] = True
-    # PROXY = "58.216.202.149:8118"
-    # firefox_capabilities['proxy'] = {
-    # "proxyType": "MANUAL",
-    # "httpProxy": PROXY,
-    # "ftpProxy": PROXY,
-    # "sslProxy": PROXY
-    # }
-    # self.driver = webdriver.Firefox(capabilities=firefox_capabilities)
-    # self.driver = webdriver.Firefox()
 
     device = device or devices.DEFAULT_DEVICE
     self.device_settings = devices.DEVICES[device]
@@ -373,9 +366,6 @@ class Instabot:
     time.sleep(2)
 
 
-  def post_photo(self, link, caption, hashtag):
-    driver = self.driver
-    driver.find_element_by_class_name('glyphsSpriteNew_post__outline__24__grey_9 u-__7')
 
   def login(self, force=False, proxy=None,
             use_cookie=False, cookie_fname=None):
@@ -545,6 +535,7 @@ class Instabot:
             rename(photo, "{}.REMOVE_ME".format(photo))
           return media
     return False
+
 
   def like_photo(self, hashtag, count):
     counter = count
@@ -740,8 +731,243 @@ class Instabot:
       print("Bot's Response", response)
       return self.post_comment(response)
 
+  def actions(self):
+    print("These are the things that you can do with this application."
+          " These include \n\tPosting photos \n\tGetting analytics "
+          "\n\tCommenting on your own content \n\tLiking other people's posts"
+          " \n\tCommenting on other people's posts "
+          "\n\tFollowing other people \n\tQuit")
+
+    response_2 = input("Type the first letter of the command that you would like to do today! \n")
+    if response_2 == 'P':
+        self.post()
+    if response_2 == 'G':
+        # TODO
+        resp = input("What type of analytics would you like to collect? "
+                     "\n\tOwn analytics (type Own) \n\tOther's analytics (type Others) \n")
+        if resp == "Own":
+            print("Great, let's get started!")
+            self.own_analytics()
+        if resp == "Others":
+            resp1 = input("Great, let's get started - type the username of the IG that you want to get analytics on")
+            self.others_analytics(resp1)
+
+    if response_2 == 'L':
+        response = input("Great! What hashtag would you like to post pictures of?")
+        print("Liking a bunch of photos with the hashtag! Just close up the browser once you are done!")
+        self.like_photo(response)
+    if response_2 == 'C':
+      # TODO
+        self.post_comment('Hello!')
+    if response_2 == 'F':
+
+        self.post()
+    if response_2 == 'Y':
+      # TODO
+        self.post()
+    if response_2 == "" or response_2 == "Q":
+        print("Thanks for stopping by - have a good day!")
+        sys.exit()
+
+  def own_analytics(self):
+    print('Here are some statistics about your account: ')
+    print('Number of Followers: ' + self.get_user_followers(self.username))
+    print('blha')
+
+  def get_user_followers(self, user_id, nfollows = None ):
+    user_id = self.convert_to_user_id(user_id)
+    followers = self.get_total_followers(user_id, nfollows)
+    return [str(item['pk']) for item in followers][::-1] if followers else []
+
+  def others_analytics(self, other_usrname):
+    print('asd')
+
+  def get_total_followers(self, user_id, amount=None):
+      return self.get_total_followers_or_followings(
+          user_id, amount, 'followers')
+
+  def get_username_info(self, user_id):
+    url = 'users/{user_id}/info/'.format(user_id=user_id)
+    return self.send_request(url)
 
 
+  def get_user_followings(self, user_id, max_id=''):
+      url = 'friendships/{user_id}/following/?max_id={max_id}&ig_sig_key_version={sig_key}&rank_token={rank_token}'
+      url = url.format(
+          user_id=user_id,
+          max_id=max_id,
+          sig_key=config.SIG_KEY_VERSION,
+          rank_token=self.rank_token
+      )
+      return self.send_request(url)
+
+  def get_total_followers_or_followings(self,
+                                        user_id,
+                                        amount=None,
+                                        which='followers',
+                                        filter_private=False,
+                                        filter_business=False,
+                                        filter_verified=False,
+                                        usernames=False,
+                                        to_file=None,
+                                        overwrite=False):
+      from io import StringIO
+
+      if which == 'followers':
+          key = 'follower_count'
+          get = self.get_user_followers
+      elif which == 'followings':
+          key = 'following_count'
+          get = self.get_user_followings
+
+      sleep_track = 0
+      result = []
+      next_max_id = ''
+      self.get_username_info(user_id)
+      username_info = self.last_json
+      if "user" in username_info:
+          total = amount or username_info["user"][key]
+
+          if total > 200000:
+              print("Consider temporarily saving the result of this big "
+                    "operation. This will take a while.\n")
+      else:
+          return False
+      if filter_business:
+          print("--> You are going to filter business accounts. This will take time! <--")
+      if to_file is not None:
+          if os.path.isfile(to_file):
+              if not overwrite:
+                  print("File `{}` already exists. Not overwriting.".format(to_file))
+                  return False
+              else:
+                  print("Overwriting file `{}`".format(to_file))
+          with open(to_file, 'w'):
+              pass
+      desc = "Getting {} of {}".format(which, user_id)
+      with tqdm(total=total, desc=desc, leave=True) as pbar:
+          while True:
+              get(user_id, next_max_id)
+              last_json = self.last_json
+              try:
+                  with open(to_file, 'a') if to_file is not None else StringIO() as f:
+                      for item in last_json["users"]:
+                          if filter_private and item['is_private']:
+                              continue
+                          if filter_business:
+                              time.sleep(2 * random.random())
+                              self.get_username_info(item['pk'])
+                              item_info = self.last_json
+                              if item_info['user']['is_business']:
+                                  continue
+                          if filter_verified and item['is_verified']:
+                              continue
+                          if to_file is not None:
+                              if usernames:
+                                  f.write("{}\n".format(item['username']))
+                              else:
+                                  f.write("{}\n".format(item['pk']))
+                          result.append(item)
+                          pbar.update(1)
+                          sleep_track += 1
+                          if sleep_track >= 20000:
+                              sleep_time = random.uniform(120, 180)
+                              msg = "\nWaiting {:.2f} min. due to too many requests."
+                              print(msg.format(sleep_time / 60))
+                              time.sleep(sleep_time)
+                              sleep_track = 0
+                  if not last_json["users"] or len(result) >= total:
+                      return result[:total]
+              except Exception as e:
+                  print("ERROR: {}".format(e))
+                  return result[:total]
+
+              if last_json["big_list"] is False:
+                  return result[:total]
+
+              next_max_id = last_json.get("next_max_id", "")
+
+  def convert_to_user_id(self, x):
+    x = str(x)
+    if not x.isdigit():
+      x = x.lstrip('@')
+      x = self.get_user_id_from_username(x)
+    # if type is not str than it is int so user_id passed
+    return x
+
+  def get_user_id_from_username(self, username):
+    if username not in self._usernames:
+      self.search_username(username)
+      self.very_small_delay()
+      if "user" in self.last_json:
+        self._usernames[username] = str(self.last_json["user"]["pk"])
+      else:
+        return None
+    return self._usernames[username]
+
+  def very_small_delay(self):
+      time.sleep(random.uniform(0.175, 0.875))
+
+  def search_username(self, username):
+    url = 'users/{username}/usernameinfo/'.format(username=username)
+    return self.send_request(url)
+
+  def post(self):
+
+    # getting what user wants to post on
+    response = [str(x) for x in input("What topic would you like to post on today? \n").split()]
+    response = ''.join(response)
+
+    # printing user profile picture ;
+    print("Great, firstly here is your user persona")
+    # TODO: dynamic creation
+    my_cmd = 'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
+    os.system(my_cmd)
+
+    # actually fetching the image from unsplash for you
+    if response == "":
+
+        print("Oops! Looks like you didn't input any query - picking a random category for you!\n")
+        response = random_category()
+        print("Your category will be " + response)
+
+    photos = py_un.search(type_='photos', query=response)
+    print("\n Now that we have that out of the way, here are a bunch of images related to your query:")
+    counter = 0
+
+    for photo in photos.entries:
+
+        # finding photo user likes and wants to post
+
+        print(photo.link_download)
+        self.driver.get(photo.link_download)
+        time.sleep(3)
+        answer = input('Do you like this photo? \n')
+
+        if answer == 'yes':
+            # run photo through model and get hashtag and captioning
+
+            full_path = os.getcwd() + '/' + 'images/' + response + '_' + photo.id + '.jpg'
+            image_url = photo.link_download
+            urllib.request.urlretrieve(photo.link_download, full_path)
+
+            # TODO: make own model
+            response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,
+                                      auth=(api_key_imagga, api_key_imagga_secret))
+            tags = []
+            print("Great, we really like that picture too! These are some of the tags you could use for captioning \n")
+            for i in range(5):
+                tags.append(response_i.json().get("result").get("tags")[i].get("tag").get("en"))
+                print('#' + tags[i] + '\n')
+
+            # TODO: Figure out how to increase classification and generate comments based on classification using AI
+            answer = classify(full_path, learn)
+            caption = caption_generate(answer, tags)
+            self.upload_photo(full_path, caption)
+            break
+        else:
+            print("No Problem, let's try another photo!")
+            continue
 
 def classify(img_path, learner):
   learn = learner
@@ -758,97 +984,14 @@ def classify(img_path, learner):
 
   print("Our model detects that this is a photo of")
   print(pred_class)
+
+  # TODO: have a lot more of these comments
   print( "And therefore a comment could be:\n\n" + class_dict.get(str(pred_class) ))
   list_return = [pred_class, class_dict.get(str(pred_class) ) ]
   return list_return
 
 
-def post():
-  response = [ str(x) for x in input("Hello there! What topic would you like to post on today? \n").split()]
-  api_key = "cd9ad8287959d3408ee5c1db5486114901cc1a7aa0c19c31529030b78204be51"
-  api_key_imagga = "acc_33cc8a8aef4eadd"
-  api_key_imagga_secret = "c83c11035b8d2c13b88a7f9b0f674b4f"
 
-
-  response = ''.join(response)
-  py_un = PyUnsplash(api_key=api_key)
-  print("Great, firstly here is your user persona")
-
-  my_cmd = 'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
-  os.system(my_cmd)
-
-
-  print("Now that we have that out of the way, here are a bunch of images related to your query:")
-
-
-  if response == "":
-    counter = 0
-
-    print("Looks like you didn't input any query - here are some of our favourite photos!")
-    category = ['food', 'computer', 'sports', 'fashion']
-    for i in category:
-      counter +=1
-
-      if (counter > 2):
-        break
-      q = 'beautiful ' + i
-
-      counter_1 = 0
-      photos = py_un.search(type_='photos', query = q)
-      for photo in photos.entries:
-        if (counter_1 > 2):
-          break
-        counter_1 += 1
-        # run photo through model and get hashtag and captioning
-        full_path = os.getcwd() + '/' + 'images/' +  i + '_' + photo.id + '.jpg'
-
-        image_url = photo.link_download
-        response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,auth=(api_key_imagga, api_key_imagga_secret))
-        # print(response_i.json().get("result").get("tags")[0])
-        urllib.request.urlretrieve(photo.link_download, full_path)
-
-        tags = []
-        tags.append(response_i.json().get("result").get("tags")[0].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[1].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[2].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[3].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[4].get("tag").get("en"))
-
-        print(tags)
-
-        classify(full_path, learn)
-        my_cmd_1 = 'open %s' %full_path
-        os.system(my_cmd_1)
-
-
-
-  else:
-  # lookup = {'food': 'nice', 'computer': 'cool', 'sports': 'fun', 'fashion': 'trendy'}
-    photos = py_un.search(type_='photos', query = response)
-    counter = 0
-    for photo in photos.entries:
-      counter +=1
-      if (counter > 2):
-        break
-      # run photo through model and get hashtag and captioning
-      full_path = os.getcwd() + '/' + 'images/' + response + '_' + photo.id + '.jpg'
-      image_url = photo.link_download
-      urllib.request.urlretrieve(photo.link_download, full_path)
-
-      response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url, auth=(api_key_imagga, api_key_imagga_secret))
-      tags = []
-      tags.append(response_i.json().get("result").get("tags")[0].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[1].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[2].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[3].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[4].get("tag").get("en"))
-
-      print(tags)
-
-      classify(full_path, learn)
-
-      my_cmd_1 = 'open %s' %full_path
-      os.system(my_cmd_1)
 
 def get_image_size(fname='image.jpg'):
   with open(fname, 'rb') as fhandle:
@@ -880,6 +1023,7 @@ def get_image_size(fname='image.jpg'):
     else:
       raise RuntimeError("Unsupported format")
     return width, height
+
 
 
 def resize_image(fname):
@@ -974,197 +1118,30 @@ def compatible_aspect_ratio(size):
   print("FOUND: w:{} h:{} r:{}".format(width, height, ratio))
   return min_ratio <= ratio <= max_ratio
 
+def caption_generate(classifier, tags):
+
+  caption = str(classifier[1])
+
+  for i in range(len(tags)):
+    caption = caption + ' #' + str(tags[i])
+  return caption
+
+
+def random_category():
+
+    #TODO: make this list larger
+    category = ['food', 'computer', 'sports', 'fashion']
+
+    import numpy as np
+    return category[np.random.randint(low = 0, high = len(category) -1)]
+
 
 def main():
-  print("yo")
-  path_pkl = '/Users/aditya.sharma/Desktop/Fakegram'
-  learn = load_learner(path_pkl)
-  classes = ['beaches', 'nature', 'icecream', 'food', 'computer', 'sports', 'fashion']
 
-  class_dict = {'beaches': 'A day for the memory book',
-    'nature': 'What a beautiful view!',
-    'icecream': 'Cheat days are to be cherished!!',
-    'food': 'Best meal I have ever had!!',
-    'computer': 'This beauty is a keeper!',
-    'sports': 'Action action action!',
-    'fashion': 'You know how we roll'}
-
-
-  response = [ str(x) for x in input("Hello there! What topic would you like to post on today? \n").split()]
-  api_key = "cd9ad8287959d3408ee5c1db5486114901cc1a7aa0c19c31529030b78204be51"
-  api_key_imagga = "acc_33cc8a8aef4eadd"
-  api_key_imagga_secret = "c83c11035b8d2c13b88a7f9b0f674b4f"
-
-
-  response = ''.join(response)
-  py_un = PyUnsplash(api_key=api_key)
-  print("Great, firstly here is your user persona")
-
-  my_cmd = 'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
-  os.system(my_cmd)
-
-
-  print("Now that we have that out of the way, here are a bunch of images related to your query:")
-
-
-  if response == "":
-    counter = 0
-
-    print("Looks like you didn't input any query - here are some of our favourite photos!")
-    category = ['food', 'computer', 'sports', 'fashion']
-    for i in category:
-      counter +=1
-
-      if (counter > 2):
-        break
-      q = 'beautiful ' + i
-
-      counter_1 = 0
-      photos = py_un.search(type_='photos', query = q)
-      for photo in photos.entries:
-        if (counter_1 > 2):
-          break
-        counter_1 += 1
-        # run photo through model and get hashtag and captioning
-        full_path = os.getcwd() + '/' + 'images/' +  i + '_' + photo.id + '.jpg'
-
-        image_url = photo.link_download
-        response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,auth=(api_key_imagga, api_key_imagga_secret))
-        # print(response_i.json().get("result").get("tags")[0])
-        urllib.request.urlretrieve(photo.link_download, full_path)
-
-        tags = []
-        tags.append(response_i.json().get("result").get("tags")[0].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[1].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[2].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[3].get("tag").get("en"))
-        tags.append(response_i.json().get("result").get("tags")[4].get("tag").get("en"))
-        for i in tags:
-          i = '#' + i
-        print("These are a list of hashtags that you could use to describe your image!")
-        print(tags)
-        classify(full_path, learn)
-        my_cmd_1 = 'open %s' %full_path
-        os.system(my_cmd_1)
-
-
-
-  else:
-  # lookup = {'food': 'nice', 'computer': 'cool', 'sports': 'fun', 'fashion': 'trendy'}
-    photos = py_un.search(type_='photos', query = response)
-    counter = 0
-    for photo in photos.entries:
-      counter +=1
-      if (counter > 2):
-        break
-      # run photo through model and get hashtag and captioning
-      full_path = os.getcwd() + '/' + 'images/' + response + '_' + photo.id + '.jpg'
-      image_url = photo.link_download
-      urllib.request.urlretrieve(photo.link_download, full_path)
-
-      response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url, auth=(api_key_imagga, api_key_imagga_secret))
-      tags = []
-      tags.append(response_i.json().get("result").get("tags")[0].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[1].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[2].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[3].get("tag").get("en"))
-      tags.append(response_i.json().get("result").get("tags")[4].get("tag").get("en"))
-
-      print("These are a list of hashtags that you could use to describe your image!")
-      print(tags)
-
-
-      answer = classify(full_path, learn)
-
-      caption = str(answer[1])
-
-      for i in range(len(tags)):
-         caption = caption + ' #' + str(tags[i])
-      bot = Instabot('havasresearch', 'havas-reasearch')
-      bot.login()
-      bot.upload_photo(full_path, caption)
-
-      my_cmd_1 = 'open %s' %full_path
-      os.system(my_cmd_1)
-
-  print("There are a bunch of other things that you can do with this application. These include \n\tPosting the photos generated \n\tGetting analytics \n\tCommenting on your own content \n\tLiking other people's posts \n\tCommenting on other people's posts \n\tFollowing other people \n\tQuit")
-  response_2 = input("Type the first letter of the command that you would like to do! \n")
-  switch_python = {
-    'P':'Post',
-    'G':'Get',
-    'L':'Like',
-    'C':'Comment_own',
-    'F':'Follow',
-    'Y':'Comment_others',
-    'Q':'Quit session'
-  }
-
-  if (response_2 == "" or response_2 == "Q"):
-    resp_3 = print("Thanks for stopping by - have a good day!")
-    sys.exit()
-
-  elif(response_2 == "G"):
-    print("You currently have no data - keep IG'ing!")
-
-  elif response_2 == "L" :
-    resp_l = input("Great, what tag do you want to like on?")
-    resp_count = input("As well, how many?")
-
-    print("Here we go!")
-    bot = Instabot('havasresearch', 'havas-reasearch')
-    bot.login_browser()
-    bot.like_photo(resp_l, resp_count)
-
-
-
-  elif response_2 == "C" :
-    bot = Instabot('havasresearch', 'havas-reasearch')
-    bot.login_browser()
-    response = input("What tag do you want to comment on?")
-    resp_chatbot = bot.pictures_on_page(response)
-
-    print("Here is a potential comment you can post!!")
-    for i in range(3):
-      bot.driver.get(resp_chatbot[i])
-      print("Firstly, here are some comments posted on the image " + bot.get_comments() )
-      bot.comment_on_picture()
-      time.sleep(2)
-    print("have a great day!")
-
-
-
-
-
-
-  elif response_2 == "F" :
-    bot = Instabot('havasresearch', 'havas-reasearch')
-    bot.login_browser()
-    print("This feature is currently under development; try again later. Have a great day!")
-
-
-  elif response_2 == "Y" :
-    bot = Instabot('havasresearch', 'havas-reasearch')
-    bot.login_browser()
-    print("have a great day!")
-
-
-  elif response_2 == "P" :
-    print("Yikes! Instagram currently doesn't support posting images through the web portal - try using the ones we created on your phone!")
-
-
-
-
-
-
-  # api 'tings
-  # client_secret = "c8eab14f9a07851496021a521635606ea2c233720fc341b7b76aca0739c48d16"
-  # redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
-
-  #authorization code
-  # code = "9c218e06dedd4f11ddb108a73f86f8ac9f5cdfcef90b92a521e92d7c1378bd0b"
-  # category = ['travel', 'animals', 'nature', 'fashion']
-
-
+    bot = Instabot('portia_res', 'havas-reasearch')
+    bot.login()
+    print("Hello there!")
+    bot.actions()
 
 
 if __name__ == "__main__":

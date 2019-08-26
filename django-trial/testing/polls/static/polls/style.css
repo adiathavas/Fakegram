@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+$color: #333;
+
+li a {
+    color: green;
+}
+
+
+/* GLOBAL STYLES */
+body {
+     /*no-repeat;*/
+  background-image: url("images/background.gif");
+  background-size: 300px 200px;
+  /*background-size: 300px 300px;*/
+
+  background-repeat: no-repeat;
+  background-color: #333;
+  padding-top: 5em;
+  display: flex;
+  justify-content: center;
+}
+.heading h1 {
+  display: block;
+}
+h2 {
+  color: #fff;
+  font-size:300%;
+  text-align: center;
+  font-family: Helvetica;
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+}
+h3{
+    color: white;
+  font-size:100%;
+  text-align: center;
+  font-family: Helvetica;
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+
+}
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  color: #fff;
+  font-family: Helvetica;
+  font-size:600%;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  /*border-right: .15em solid orange; !* The typwriter cursor *!*/
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 1.5s steps(30, end)
+    /*blink-caret 1.5s step-end infinite;*/
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/*!* The typewriter cursor effect *!*/
+/*@keyframes blink-caret {*/
+/*  from, to { border-color: transparent }*/
+/*  50% { border-color: orange }*/
+/*}*/
+
+input{
+   width: 100%;
+}
+
+
+
+input[type='text']::-webkit-input-placeholder,
+input[type='password']::-webkit-input-placeholder{
+  transition: all 0.3s ease-in-out;
+}
+
+.login-panel {
+  width: 250px;
+  height:220px;
+  /*top:0;*/
+  /*right:0;*/
+  /*bottom:0;*/
+  /*left:0;*/
+  margin: auto;
+  display: block;
+  /*position: absolute;*/
+  text-align:center;
+  background-color: #333333;
+  /*border-right:1px solid lighten($color,25%);*/
+  /*box-shadow: 2px 2px 7px rgba(0,0,0,0.26);*/
+
+  input[type='text'],
+  input[type='password'] {
+    margin: 0 auto;
+    width: 80%;
+    display: block;
+    border: none;
+    padding: 10px 0;
+    border-bottom: solid 1px $color;
+    transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $color 4%);
+    background-position: -200px 0;
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    color: darken($color, 20%);
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      background-position: 0 0;
+      &::-webkit-input-placeholder {
+        color: $color;
+        font-size: 11px;
+        transform: translateY(-20px);
+        visibility: visible !important;
+      }
+    }
+  }
+  /*.btn-submit {*/
+  /*  background: #333;*/
+  /*  cursor: pointer;*/
+  /*  margin: 0 auto;*/
+  /*  position: relative;*/
+  /*  padding:5px;*/
+  /*  width: 80%;*/
+  /*  color: white;*/
+  /*  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);*/
+  /*  &:hover {*/
+  /*      background: darken($color,10%);*/
+  /*  }*/
+  /*}*/
+}
+
+.ripple {
+  background-color: rgba(255, 255, 255, 0.26);
+  border-radius:100%;
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*submit button ccss*/
+
+.submit{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width:100px;
+  height:40px;
+  background-color:#111111;
+  border:2px solid #FFFFFF;
+  border-radius:10px;
+  color:#FFFFFF;
+  font-size:17px;
+  cursor:pointer !important;
+  outline:none;
+}
+
+.submit:hover{
+  background-color:#222222;
+}
