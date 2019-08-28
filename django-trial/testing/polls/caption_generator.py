@@ -22,8 +22,10 @@ import struct
 import time
 import urllib
 from json import JSONDecodeError
-import config
-import devices
+# import config
+from . import config
+from . import devices
+# import devices
 import logging
 import os
 import sys
@@ -537,8 +539,8 @@ class Instabot:
     return False
 
 
-  def like_photo(self, hashtag):
-    count = 10
+  def like_photo(self, hashtag, count):
+    counter = count
     driver = self.driver
     driver.get("https://www.instagram.com/explore/tags/"+hashtag+"/?hl=en")
     time.sleep(2)
@@ -912,62 +914,97 @@ class Instabot:
     url = 'users/{username}/usernameinfo/'.format(username=username)
     return self.send_request(url)
 
-  def post(self):
+  def post_2(self, argument):
 
-    # getting what user wants to post on
-    response = [str(x) for x in input("What topic would you like to post on today? \n").split()]
-    response = ''.join(response)
+      photos = py_un.search(type_='photos', query=argument)
+      for photo in photos.entries:
+          # run photo through model and get hashtag and captioning
 
-    # printing user profile picture ;
-    print("Great, firstly here is your user persona")
-    # TODO: dynamic creation
-    my_cmd = 'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
-    os.system(my_cmd)
+          image_url = photo.link_download
+          full_path = os.getcwd() + '/' + 'images/' + '_' + photo.id + '.jpg'
+          urllib.request.urlretrieve(photo.link_download, full_path)
 
-    # actually fetching the image from unsplash for you
-    if response == "":
+          # TODO: make own model
+          response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,
+                                    auth=(api_key_imagga, api_key_imagga_secret))
+          tags = []
+          time.sleep(1)
+          for i in range(5):
+              tags.append(response_i.json().get("result").get("tags")[i].get("tag").get("en"))
 
-        print("Oops! Looks like you didn't input any query - picking a random category for you!\n")
-        response = random_category()
-        print("Your category will be " + response)
+          # TODO: Figure out how to increase classification and generate comments based on classification using AI
+          answer = classify(full_path, learn)
+          caption = caption_generate(answer, tags)
+          self.upload_photo(full_path, caption)
+          break
 
-    photos = py_un.search(type_='photos', query=response)
-    print("\n Now that we have that out of the way, here are a bunch of images related to your query:")
-    counter = 0
 
-    for photo in photos.entries:
+  #open up  'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
 
-        # finding photo user likes and wants to post
 
-        print(photo.link_download)
-        self.driver.get(photo.link_download)
-        time.sleep(3)
-        answer = input('Do you like this photo? \n')
+  def post(self, argument=None):
 
-        if answer == 'yes':
-            # run photo through model and get hashtag and captioning
+    if argument == None:
+        # getting what user wants to post on
+        response = [str(x) for x in input("What topic would you like to post on today? \n").split()]
+        response = ''.join(response)
 
-            full_path = os.getcwd() + '/' + 'images/' + response + '_' + photo.id + '.jpg'
-            image_url = photo.link_download
-            urllib.request.urlretrieve(photo.link_download, full_path)
+        # printing user profile picture ;
+        print("Great, firstly here is your user persona")
+        # TODO: dynamic creation
+        my_cmd = 'open /Users/aditya.sharma/Downloads/gan-image-removebg-preview.png'
+        os.system(my_cmd)
 
-            # TODO: make own model
-            response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,
-                                      auth=(api_key_imagga, api_key_imagga_secret))
-            tags = []
-            print("Great, we really like that picture too! These are some of the tags you could use for captioning \n")
-            for i in range(5):
-                tags.append(response_i.json().get("result").get("tags")[i].get("tag").get("en"))
-                print('#' + tags[i] + '\n')
+        # actually fetching the image from unsplash for you
+        if response == "":
 
-            # TODO: Figure out how to increase classification and generate comments based on classification using AI
-            answer = classify(full_path, learn)
-            caption = caption_generate(answer, tags)
-            self.upload_photo(full_path, caption)
-            break
-        else:
-            print("No Problem, let's try another photo!")
-            continue
+            print("Oops! Looks like you didn't input any query - picking a random category for you!\n")
+            response = random_category()
+            print("Your category will be " + response)
+
+        photos = py_un.search(type_='photos', query=response)
+        print("\n Now that we have that out of the way, here are a bunch of images related to your query:")
+        counter = 0
+
+        for photo in photos.entries:
+
+            # finding photo user likes and wants to post
+
+            print(photo.link_download)
+            self.driver.get(photo.link_download)
+            time.sleep(3)
+            answer = input('Do you like this photo? \n')
+
+            if answer == 'yes':
+                # run photo through model and get hashtag and captioning
+
+                full_path = os.getcwd() + '/' + 'images/' + response + '_' + photo.id + '.jpg'
+                image_url = photo.link_download
+                urllib.request.urlretrieve(photo.link_download, full_path)
+
+                # TODO: make own model
+                response_i = requests.get('https://api.imagga.com/v2/tags?image_url=%s' % image_url,
+                                          auth=(api_key_imagga, api_key_imagga_secret))
+                tags = []
+                print("Great, we really like that picture too! These are some of the tags you could use for captioning \n")
+                for i in range(5):
+                    tags.append(response_i.json().get("result").get("tags")[i].get("tag").get("en"))
+                    print('#' + tags[i] + '\n')
+
+                # TODO: Figure out how to increase classification and generate comments based on classification using AI
+                answer = classify(full_path, learn)
+                caption = caption_generate(answer, tags)
+                self.upload_photo(full_path, caption)
+                break
+            else:
+                print("No Problem, let's try another photo!")
+                continue
+    else:
+        pass
+
+
+
+
 
 def classify(img_path, learner):
   learn = learner
@@ -1141,7 +1178,6 @@ def main():
     bot = Instabot('portia_res', 'havas-reasearch')
     bot.login()
     print("Hello there!")
-    time.sleep(2)
     bot.actions()
 
 

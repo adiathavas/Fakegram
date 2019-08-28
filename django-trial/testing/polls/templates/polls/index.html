@@ -1,45 +1,25 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+
     <div>
     <div class="typewriter heading">
         <h1 align="center">Welcome to FakeGram!</h1>
     </div>
+
+
         <br><br><br><br><br><br><br><br><br>
         <h2> FakeGram is a PWA platform that <br><br> automates your marketing workflow <br><br>by producing posts to upload to <br><br> Instagram!</h2>
     <div>
-<!--{% if latest_question_list %}-->
-<!--    <ul>-->
-<!--    {% for question in latest_question_list %}-->
-<!--        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>-->
-<!--    {% endfor %}-->
-<!--    </ul>-->
-
-
-
-<br />
-<div class="login-panel" ng-app='materialRipple' >
-
-  <form>
-      <br />
-    <h3>Login</h3>
-      <br />
-    <input type="text" placeholder="IG Username"/> <br /><br /><br />
-
-    <h3>Password</h3>
-<br />
-    <input type="password" placeholder="IG Password"/> <br />
-      <br />
-<!--    <div ripple ripple-class="ripple" ripple-diameter="50" ripple-stream="true" class="btn-submit">submit</div>-->
-      <div class="cont">
-          <br />
+        <br><br><br><br><br><br><br><br><br>
+  <form  method="post">
+      {% csrf_token %}
+        {{form.as_p}}
         <button class="submit"><span>Submit</span></button>
-      </div>
   </form>
-</div>
-<!--{% else %}-->
-<!--    <p>No polls are available.</p>-->
-{% endif %}
+
+
 
 
 

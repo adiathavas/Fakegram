@@ -1,0 +1,55 @@
+2019-08-27 07:37:51,106 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=c9c60389a35949419a4245eab2808963 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a33adbba8>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 07:43:43,594 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=1bc36606070b4b6ebf87d01d66d76ef0 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a2dc41e10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 08:02:22,739 Logged-in successfully as 'portia_res'!
+2019-08-27 08:09:23,191 Logged-in successfully as 'portia_res'!
+2019-08-27 08:16:27,128 Logged-in successfully as 'portia_res'!
+2019-08-27 08:18:43,057 Logged-in successfully as 'portia_res'!
+2019-08-27 08:19:30,732 Logged-in successfully as 'portia_res'!
+2019-08-27 11:44:21,926 Logged-in successfully as 'portia_res'!
+2019-08-27 13:44:22,478 Logged-in successfully as 'portia_res'!
+2019-08-27 13:51:07,416 Logged-in successfully as 'portia_res'!
+2019-08-27 13:53:15,538 Logged-in successfully as 'portia_res'!
+2019-08-27 13:55:34,717 Logged-in successfully as 'portia_res'!
+2019-08-27 13:59:10,858 Logged-in successfully as 'portia_res'!
+2019-08-27 14:16:18,869 Logged-in successfully as 'portia_res'!
+2019-08-27 14:17:12,963 Logged-in successfully as 'portia_res'!
+2019-08-27 14:17:45,925 Logged-in successfully as 'portia_res'!
+2019-08-27 14:38:59,789 Logged-in successfully as 'portia_res'!
+2019-08-27 14:40:33,913 Logged-in successfully as 'portia_res'!
+2019-08-27 14:40:38,721 Logged-in successfully as 'portia_res'!
+2019-08-27 14:41:56,719 Logged-in successfully as 'portia_res'!
+2019-08-27 14:44:24,076 Logged-in successfully as 'portia_res'!
+2019-08-27 14:45:34,520 Logged-in successfully as 'portia_res'!
+2019-08-27 14:48:32,916 Logged-in successfully as 'portia_res'!
+2019-08-27 16:08:41,713 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=0ba19231fc6b423eac03ec29561b90fe (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a2f07be10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 17:30:19,139 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=6f813d06fc3d4aba8a1c226b9af4dc5e (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a31266cc0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 17:30:42,653 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=b207bec4a4f24ee0a6898ac3015a98b8 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a3120ca90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 17:33:19,101 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=23545fd9b6fa4400abfaf3f3e8a3bcea (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a2f9c8e10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-08-27 19:48:29,388 Logged-in successfully as 'portia_res'!
+2019-08-27 19:52:52,183 Logged-in successfully as 'portia_res'!
+2019-08-27 19:58:22,973 Logged-in successfully as 'portia_res'!
+2019-08-27 20:11:03,335 Logged-in successfully as 'portia_res'!
+2019-08-28 00:57:19,473 Logged-in successfully as 'portia_res'!
+2019-08-28 01:09:50,918 Logged-in successfully as 'portia_res'!
+2019-08-28 01:09:59,114 Logged-in successfully as 'portia_res'!
+2019-08-28 01:11:48,199 Logged-in successfully as 'portia_res'!
+2019-08-28 01:30:02,638 Logged-in successfully as 'portia_res'!
+2019-08-28 01:41:47,786 Logged-in successfully as 'portia_res'!
+2019-08-28 02:25:18,328 Logged-in successfully as 'portia_res'!
+2019-08-28 07:18:46,917 Logged-in successfully as 'portia_res'!
+2019-08-28 07:23:18,167 Logged-in successfully as 'portia_res'!
+2019-08-28 08:10:37,310 Logged-in successfully as 'portia_res'!
+2019-08-28 08:13:44,202 Logged-in successfully as 'portia_res'!
+2019-08-28 08:19:07,487 Logged-in successfully as 'portia_res'!
+2019-08-28 08:27:32,018 Logged-in successfully as 'portia_res'!
+2019-08-28 08:30:07,058 Logged-in successfully as 'portia_res'!
+2019-08-28 08:30:21,188 Logged-in successfully as 'portia_res'!
+2019-08-28 08:31:39,316 Logged-in successfully as 'portia_res'!
+2019-08-28 08:35:23,033 Logged-in successfully as 'portia_res'!
+2019-08-28 08:35:48,688 Logged-in successfully as 'portia_res'!
+2019-08-28 08:36:04,056 Logged-in successfully as 'portia_res'!
+2019-08-28 08:51:35,600 Logged-in successfully as 'portia_res'!
+2019-08-28 09:12:30,863 Logged-in successfully as 'portia_res'!
+2019-08-28 09:14:34,767 Logged-in successfully as 'portia_res'!
+2019-08-28 09:30:34,394 Logged-in successfully as 'portia_res'!
+2019-08-28 09:31:02,880 Logged-in successfully as 'portia_res'!

@@ -22,6 +22,33 @@ body {
 .heading h1 {
   display: block;
 }
+
+label {
+color: #000000;
+font-size:700%;
+font-family: Helvetica;
+white-space: nowrap; /* Keeps the content on a single line */
+margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+letter-spacing: .15em; /* Adjust as needed */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+
+.centring{
+  color: #FFFFFF;
+font-size:700%;
+font-family: Helvetica;
+white-space: nowrap; /* Keeps the content on a single line */
+margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+letter-spacing: .15em; /* Adjust as needed */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+
 h2 {
   color: #fff;
   font-size:300%;
@@ -136,11 +163,31 @@ input[type='password']::-webkit-input-placeholder{
   /*}*/
 }
 
+form {
+margin: 0 auto;
+width:250px;
+}
+
 .ripple {
   background-color: rgba(255, 255, 255, 0.26);
   border-radius:100%;
   animation: ripple 1s ease-out;
 }
+
+.ripple {
+  background-color: rgba(255, 255, 255, 0.26);
+  border-radius:100%;
+  animation: ripple 1s ease-out;
+}
+
+.labelia{
+
+
+text-align: center;
+
+
+}
+
 
 @keyframes ripple {
   to {

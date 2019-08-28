@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<h2>What topic would you like to post on today?</h2>
+
+<div class="labelia">
+    <form action="{% url 'polls:topic' %}" method="post">
+{% csrf_token %}
+        <br />
+    <input type="text" placeholder="Topic to Post on"/> <br /><br /><br />
+    <button class="submit"><span>Submit</span></button>
+
+</form>
+
+</div>>

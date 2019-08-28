@@ -1,0 +1,33 @@
+{% load static %}
+
+<!--{% url 'polls:loginsuccess' %}-->
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+
+
+<h2>What would you like to do today?</h2>
+
+
+<div>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <form action="{% url 'polls:posting' %}"method="post">
+{% csrf_token %}
+
+        <div>
+    <input type="radio" name="choice"  id ="1" value="1">
+    <label class = "labelia" for="1">Posting photos</label>
+         <br />
+    <input type="radio" name="choice"  id ="2" value="2" name="actions">
+    <label for="2">Getting analytics</label> <br />
+    <input type="radio" name="choice"  id ="3" value="3" name="actions">
+    <label for="3">Liking Posts</label><br />
+    <input type="radio" name="choice"  id ="4" value="4" name="actions">
+    <label for="4">Logout</label><br>
+            </div>>
+<input type="submit" value="Submit">
+</form>
+
+</div>>
