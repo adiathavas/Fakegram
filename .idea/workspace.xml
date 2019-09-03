@@ -48,8 +48,8 @@
         <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="560">
-                <caret line="68" column="165" selection-start-line="68" selection-start-column="165" selection-end-line="68" selection-end-column="165" />
+              <first_editor relative-caret-position="545">
+                <caret line="53" selection-start-line="53" selection-end-line="53" />
               </first_editor>
               <second_editor />
             </state>
@@ -276,12 +276,12 @@
       <updated>1565879701202</updated>
       <workItem from="1565879707645" duration="74232000" />
       <workItem from="1566923843836" duration="29211000" />
-      <workItem from="1567503408327" duration="3291000" />
+      <workItem from="1567503408327" duration="3385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106734000" />
+    <option name="totallyTimeSpent" value="106828000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,8 +628,8 @@
     <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="560">
-            <caret line="68" column="165" selection-start-line="68" selection-start-column="165" selection-end-line="68" selection-end-column="165" />
+          <first_editor relative-caret-position="545">
+            <caret line="53" selection-start-line="53" selection-end-line="53" />
           </first_editor>
           <second_editor />
         </state>
