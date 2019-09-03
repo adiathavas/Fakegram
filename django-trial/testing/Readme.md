@@ -25,7 +25,7 @@ To run the main UI, follow the following steps:
 
 
 
-Next Steps: 
+## Next Steps: 
 
 This project is super exciting and there are a lot of really cool things that one could further explore on 
 
@@ -35,7 +35,7 @@ This could truly become something of great value.
 
 
 
-Accomplished/finished/foundation: 
+### Accomplished/finished/foundation: 
 
 
 1) Fake face generator: Used GANs to create fake people based on Flickr dataset. Look at Stylegan_try.ipynb notebook
@@ -46,7 +46,7 @@ Accomplished/finished/foundation:
 
 
 
-## Next Steps/Areas of improvement
+### Next Steps/Areas of improvement
 
 1) Integration of frameworks with django. After about the first three four days, it became pretty apparent that django as a framework is not very great at vanilla front-end. In fact, it was quite frustrating to deal with. Hence, I was unable to make the UI as appealing as I would have like dit to be. However, with the right setup, I think there's real value in using something like react for the frontend and integrating it with the django backend. 
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759861b1-7846-45a7-810e-545817c84237" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django-trial/testing/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" afterDir="false" />
@@ -48,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="545">
-                <caret line="53" selection-start-line="53" selection-end-line="53" />
+              <first_editor relative-caret-position="245">
+                <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
               </first_editor>
               <second_editor />
             </state>
@@ -276,12 +277,12 @@
       <updated>1565879701202</updated>
       <workItem from="1565879707645" duration="74232000" />
       <workItem from="1566923843836" duration="29211000" />
-      <workItem from="1567503408327" duration="3385000" />
+      <workItem from="1567503408327" duration="3456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106828000" />
+    <option name="totallyTimeSpent" value="106899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,8 +629,8 @@
     <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="545">
-            <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <first_editor relative-caret-position="245">
+            <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
           </first_editor>
           <second_editor />
         </state>
