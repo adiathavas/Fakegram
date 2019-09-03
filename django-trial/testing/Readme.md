@@ -60,7 +60,11 @@ However, with the right setup, I think there's real value in using something lik
 among olther analytics that we might want to include in  the app, make sure to look into InstaBot and using their follower/following fucntions as an auxillary (a resource I found out about much too late)
 
 
-3) Recommendation of articles for user engagement: After talking to somebody from the marketing side, it became apparent that the posting functionality/feature was the most promising for the team. In additon, something else that was considered a pain-point was user engagement. 
+3) Recommendation of articles for user engagement: After talking to somebody from the marketing side, it became apparent that the posting functionality/feature was the most promising feature for the team. 
 
-This had tradiionally been done by 
+In additon, something else that was considered a pain-point was user engagement was article recommendation. 
+
+This had traditionally been done by somebody in the marketing team who would essentially use their own knowledge to find tech articles from their own sources and then
+
+repost them on various social medias. This can be automated easily by using the Reddit API to scrape top-voted tech news article or scrape other good article sites. 
 
