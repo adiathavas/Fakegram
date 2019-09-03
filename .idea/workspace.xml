@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="759861b1-7846-45a7-810e-545817c84237" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-trial/testing/instabot.log" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/instabot.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-trial/testing/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot/instabot/api/api_photo.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot/instabot/api/api_photo.py" afterDir="false" />
@@ -51,8 +48,8 @@
         <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="365">
-                <caret line="45" selection-start-line="40" selection-end-line="45" />
+              <first_editor relative-caret-position="165">
+                <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
               </first_editor>
               <second_editor />
             </state>
@@ -279,12 +276,12 @@
       <updated>1565879701202</updated>
       <workItem from="1565879707645" duration="74232000" />
       <workItem from="1566923843836" duration="29211000" />
-      <workItem from="1567503408327" duration="2742000" />
+      <workItem from="1567503408327" duration="2796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106185000" />
+    <option name="totallyTimeSpent" value="106239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -631,8 +628,8 @@
     <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="365">
-            <caret line="45" selection-start-line="40" selection-end-line="45" />
+          <first_editor relative-caret-position="165">
+            <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
           </first_editor>
           <second_editor />
         </state>

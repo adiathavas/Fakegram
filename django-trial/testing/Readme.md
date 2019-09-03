@@ -9,7 +9,7 @@ To run the main UI, follow the following steps:
 
 2) pip install all the dependencies from the requirements.txt file in the main folder
 
-3) git clone 
+3) git clone https://github.com/adiathavas/Fakegram.git
 
 4) Download chromedriver (selenium driver for google chrome) from selenium and put it in each of the following subdirectory: Fakegram main directory, 
     Fakegram/django-trial/testing, Fakegram/django-trial/testing/polls   
