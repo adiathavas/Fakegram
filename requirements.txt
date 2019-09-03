@@ -1,0 +1,6 @@
+pyunsplash==1.0.0b8fastai
+selenium==3.141.0
+requests-toolbelt==0.7.0
+instabot
+tqdm
+django

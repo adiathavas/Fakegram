@@ -53,3 +53,4 @@
 2019-08-28 09:14:34,767 Logged-in successfully as 'portia_res'!
 2019-08-28 09:30:34,394 Logged-in successfully as 'portia_res'!
 2019-08-28 09:31:02,880 Logged-in successfully as 'portia_res'!
+2019-08-29 07:01:04,264 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=5501919d28744d23992609783c8603f5 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a33889358>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))

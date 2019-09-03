@@ -917,6 +917,24 @@ class Instabot:
   def post_2(self, argument):
 
       photos = py_un.search(type_='photos', query=argument)
+      divisor = 1
+      collection = []
+      small_collection =[]
+      for photo in photos.entries:
+          if divisor % 5 == 0:   # if there are 5 phtoos in a collection already
+            small_collection.append(photo)
+            collection.append(small_collection)
+            small_collection = []
+            collection
+            divisor = 1
+          small_collection.append(photo)
+          divisor += 1
+
+
+
+
+
+
       for photo in photos.entries:
           # run photo through model and get hashtag and captioning
 
