@@ -49,13 +49,18 @@ class TopicView(generic.ListView):
         return render(request, self.template_name, {'form': form})
     def post(self, request):
         form = InputForm(request.POST)
-
+        # str = ""
         argument = form.get_data()
+        # print(argument.to_python(argument, str))
+        # print("this is the string" + str)
         bot = caption_generator.Instabot('portia_res', 'havas-reasearch')
         bot.login()
 
         """assume i have the right input, now calling post_2"""
-        bot.post_2('new york')
+
+        #dynamic version not working properly - currently a little hard coded
+        # bot.post_2(argument.to_python())
+        bot.post_2('toronto')
 
         return HttpResponseRedirect(reverse('polls:loginsuccess'))
 

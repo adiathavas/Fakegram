@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="759861b1-7846-45a7-810e-545817c84237" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caption_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/caption_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django-trial/testing/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-trial/testing/instabot.log" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/instabot.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-trial/testing/polls/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/polls/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-trial/testing/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-trial/testing/polls/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instabot.log" beforeDir="false" afterPath="$PROJECT_DIR$/instabot.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot/instabot/api/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing2/instabot/instabot/api/api_photo.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing2/instabot/instabot/api/api_photo.py" afterDir="false" />
@@ -17,9 +23,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/caption_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="1185" column="35" selection-start-line="1185" selection-start-column="35" selection-end-line="1185" selection-end-column="35" />
+              <folding>
+                <element signature="e#42#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="484">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -28,10 +65,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="-3487">
+              <caret line="916" column="12" selection-start-line="916" selection-start-column="6" selection-end-line="916" selection-end-column="12" />
+              <folding>
+                <element signature="e#42#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +101,8 @@
         <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="245">
-                <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+              <first_editor relative-caret-position="630">
+                <caret line="42" column="112" lean-forward="true" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
               </first_editor>
               <second_editor />
             </state>
@@ -69,14 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>config</find>
-      <find>voit</find>
-      <find>endif</find>
-      <find>DetailView</find>
-      <find>login</find>
-      <find>results</find>
-      <find>reverse</find>
-      <find>reve</find>
       <find>revers</find>
       <find>loginsuccess</find>
       <find>rever</find>
@@ -91,14 +135,22 @@
       <find>Form</find>
       <find>post(</find>
       <find>polls:to</find>
-      <find>post_2</find>
       <find>LOgin</find>
       <find>tags.appe</find>
       <find>HTTP</find>
       <find>action</find>
       <find>label</find>
-      <find>actions</find>
       <find>Inst</find>
+      <find>new</find>
+      <find>login</find>
+      <find>like_photo</find>
+      <find>size(pic</find>
+      <find>like</find>
+      <find>options()</find>
+      <find>actions()</find>
+      <find>actions</find>
+      <find>post_2</find>
+      <find>argum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,15 +170,16 @@
         <option value="$PROJECT_DIR$/django-trial/testing/polls/templates/polls/topic.html" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/models.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/urls.py" />
-        <option value="$PROJECT_DIR$/django-trial/testing/polls/views.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/temp.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/templates/polls/index.html" />
-        <option value="$PROJECT_DIR$/caption_generator.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/forms.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/templates/polls/loginsuccess.html" />
-        <option value="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" />
         <option value="$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css" />
+        <option value="$PROJECT_DIR$/django-trial/testing/polls/admin.py" />
+        <option value="$PROJECT_DIR$/caption_generator.py" />
+        <option value="$PROJECT_DIR$/django-trial/testing/polls/views.py" />
         <option value="$PROJECT_DIR$/django-trial/testing/Readme.md" />
       </list>
     </option>
@@ -142,8 +195,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -170,6 +224,30 @@
               <item name="Fakegram" type="462c0819:PsiDirectoryNode" />
               <item name="django-trial" type="462c0819:PsiDirectoryNode" />
               <item name="testing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fakegram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fakegram" type="462c0819:PsiDirectoryNode" />
+              <item name="django-trial" type="462c0819:PsiDirectoryNode" />
+              <item name="testing" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fakegram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fakegram" type="462c0819:PsiDirectoryNode" />
+              <item name="django-trial" type="462c0819:PsiDirectoryNode" />
+              <item name="testing" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fakegram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Fakegram" type="462c0819:PsiDirectoryNode" />
+              <item name="django-trial" type="462c0819:PsiDirectoryNode" />
+              <item name="testing" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,12 +355,13 @@
       <updated>1565879701202</updated>
       <workItem from="1565879707645" duration="74232000" />
       <workItem from="1566923843836" duration="29211000" />
-      <workItem from="1567503408327" duration="3456000" />
+      <workItem from="1567503408327" duration="4378000" />
+      <workItem from="1567521912225" duration="6485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106899000" />
+    <option name="totallyTimeSpent" value="114306000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -294,11 +373,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="-1080" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1720517" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19861555" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.44246575" />
@@ -494,9 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing/testing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -569,20 +645,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caption_generator.py">
+    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/templates/polls/loginsuccess.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17100">
-          <caret line="1140" column="32" selection-start-line="1140" selection-start-column="32" selection-end-line="1140" selection-end-column="32" />
-          <folding>
-            <element signature="e#42#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -595,42 +661,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" selection-end-line="58" />
+        <state relative-caret-position="615">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/templates/polls/loginsuccess.html">
+    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="199">
+          <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caption_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="1185" column="35" selection-start-line="1185" selection-start-column="35" selection-end-line="1185" selection-end-column="35" />
+          <folding>
+            <element signature="e#42#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/caption_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3487">
+          <caret line="916" column="12" selection-start-line="916" selection-start-column="6" selection-end-line="916" selection-end-column="12" />
+          <folding>
+            <element signature="e#42#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="484">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-trial/testing/polls/static/polls/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-trial/testing/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="245">
-            <caret line="33" column="50" lean-forward="true" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <first_editor relative-caret-position="630">
+            <caret line="42" column="112" lean-forward="true" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
           </first_editor>
           <second_editor />
         </state>

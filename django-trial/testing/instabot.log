@@ -54,3 +54,44 @@
 2019-08-28 09:30:34,394 Logged-in successfully as 'portia_res'!
 2019-08-28 09:31:02,880 Logged-in successfully as 'portia_res'!
 2019-08-29 07:01:04,264 HTTPSConnectionPool(host='i.instagram.com', port=443): Max retries exceeded with url: /api/v1/si/fetch_headers/?challenge_type=signup&guid=5501919d28744d23992609783c8603f5 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x1a33889358>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2019-09-03 09:05:38,731 Request returns 400 error!
+2019-09-03 09:05:38,731 Instagram's error message: challenge_required
+2019-09-03 09:05:38,731 Error type: checkpoint_challenge_required
+2019-09-03 09:05:38,731 Checkpoint challenge required...
+2019-09-03 09:07:28,732 Request returns 400 error!
+2019-09-03 09:07:28,733 Instagram's error message: Select a valid choice.  researchhavas@outlook.com is not one of the available choices.
+2019-09-03 09:07:28,733 Instagram's error message: {}
+2019-09-03 09:08:38,871 Request returns 400 error!
+2019-09-03 09:08:38,871 Instagram's error message: challenge_required
+2019-09-03 09:08:38,871 Error type: checkpoint_challenge_required
+2019-09-03 09:08:38,872 Checkpoint challenge required...
+2019-09-03 09:19:45,070 Request returns 400 error!
+2019-09-03 09:19:45,070 Instagram's error message: Select a valid choice. researchhavas@outlook.com is not one of the available choices.
+2019-09-03 09:19:45,070 Instagram's error message: {}
+2019-09-03 09:19:45,805 Request returns 400 error!
+2019-09-03 09:19:45,806 Instagram's error message: This field is required.
+2019-09-03 09:19:45,806 Instagram's error message: {}
+2019-09-03 09:19:45,806 Not possible to log in. Reset and try again
+2019-09-03 09:19:45,806 Username or password is incorrect.
+2019-09-03 09:20:19,652 Request returns 400 error!
+2019-09-03 09:20:19,652 Instagram's error message: challenge_required
+2019-09-03 09:20:19,653 Error type: checkpoint_challenge_required
+2019-09-03 09:20:19,653 Checkpoint challenge required...
+2019-09-03 09:43:42,350 Logged-in successfully as 'portia_res'!
+2019-09-03 09:54:21,442 Logged-in successfully as 'portia_res'!
+2019-09-03 09:54:43,942 Logged-in successfully as 'portia_res'!
+2019-09-03 09:57:49,467 Logged-in successfully as 'portia_res'!
+2019-09-03 10:38:25,914 Logged-in successfully as 'portia_res'!
+2019-09-03 10:40:19,698 Logged-in successfully as 'portia_res'!
+2019-09-03 10:41:29,517 Logged-in successfully as 'portia_res'!
+2019-09-03 10:49:37,577 Logged-in successfully as 'portia_res'!
+2019-09-03 10:58:05,553 Logged-in successfully as 'portia_res'!
+2019-09-03 11:00:26,219 Logged-in successfully as 'portia_res'!
+2019-09-03 14:17:24,431 Logged-in successfully as 'portia_res'!
+2019-09-03 14:17:43,952 Logged-in successfully as 'portia_res'!
+2019-09-03 14:19:11,255 Logged-in successfully as 'portia_res'!
+2019-09-03 14:19:30,712 Logged-in successfully as 'portia_res'!
+2019-09-03 14:20:32,356 Logged-in successfully as 'portia_res'!
+2019-09-03 14:20:59,550 Logged-in successfully as 'portia_res'!
+2019-09-03 14:24:12,694 Logged-in successfully as 'portia_res'!
+2019-09-03 14:24:27,380 Logged-in successfully as 'portia_res'!

@@ -164,6 +164,7 @@ input[type='password']::-webkit-input-placeholder{
 }
 
 form {
+  left: 10px;
 margin: 0 auto;
 width:250px;
 }
@@ -195,13 +196,6 @@ text-align: center;
     opacity: 0;
   }
 }
-
-
-
-
-
-
-
 
 
 

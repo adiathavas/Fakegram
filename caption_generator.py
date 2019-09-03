@@ -433,6 +433,22 @@ class Instabot:
           return False
 
 
+  def login_2(self):
+    driver = self.driver
+    driver.get("https://www.instagram.com/accounts/login/?hl=en")
+    time.sleep(3)
+    user_name_elem = driver.find_element_by_xpath("//input[@name='username']")
+    user_name_elem.clear()
+    user_name_elem.send_keys(self.username)
+
+    password_elem = driver.find_element_by_xpath("//input[@name='password']")
+    password_elem.clear()
+    password_elem.send_keys(self.password)
+    password_elem.send_keys(Keys.RETURN)
+    # popup = driver.find_element_by_xpath("//button[@class='aOOlW HoLwm']")
+    ui.WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".aOOlW.HoLwm"))).click()
+    time.sleep(2)
+
 
   def json_data(self, data=None):
     """Adds the default_data to data and dumps it to a json."""
@@ -755,7 +771,7 @@ class Instabot:
     if response_2 == 'L':
         response = input("Great! What hashtag would you like to post pictures of?")
         print("Liking a bunch of photos with the hashtag! Just close up the browser once you are done!")
-        self.like_photo(response)
+        self.like_photo_2(response, 15)
     if response_2 == 'C':
       # TODO
         self.post_comment('Hello!')
@@ -886,6 +902,66 @@ class Instabot:
                   return result[:total]
 
               next_max_id = last_json.get("next_max_id", "")
+
+  def like_photo_2(self, hashtag, count):
+    counter = count
+    driver = self.driver
+    driver.get("https://www.instagram.com/explore/tags/"+hashtag+"/?hl=en")
+    time.sleep(2)
+    for i in range(1,3):
+      driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+      time.sleep(2)
+    pic_hrefs =[]
+
+    #going to each picture link and figuring out how to actually like a certain phtoo
+    hrefs= driver.find_elements_by_tag_name('a')
+    # pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
+    # pic_hrefs = [href for href in pic_hrefs if hashtag in href]
+    # print(hashtag + ' photos: ' + str(len(hrefs)))
+    hrefs_in_view = [elem.get_attribute('href') for elem in hrefs]
+    # building list of unique photos
+    for href in hrefs_in_view:
+      if href not in pic_hrefs:
+        pic_hrefs.append(href)
+    # for href in hrefs:
+
+    #   try:
+    #     driver.get(href)
+    #   except:
+    #     print("skipping this bro" + href)
+    #     continue
+    #   driver.execute_script("window.scrollTo(0. document.body.scrollHeight);")
+    #   try:
+    #     driver.find_element_by_link_text("Like").click()
+    #     time.sleep(20)
+    #   except:
+    #     time.sleep(2)
+    #   print("SUCEEESS!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print(str(len(pic_hrefs)) + "this is the size of the picsssss")
+    for href in pic_hrefs:
+      print(href)
+      count = count - 1
+      print(count)
+      if (count <= 0):
+        break
+      try:
+        self.driver.get(href)
+        print("in the try")
+        time.sleep(2)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        try:
+            time.sleep(random.randint(2, 4))
+            like_button = lambda: driver.find_element_by_xpath('//span[@aria-label="Like"]').click()
+            like_button().click()
+            time.sleep(1)
+        except Exception as e:
+            print("in the except statement  ")
+            time.sleep(2)
+
+      except:
+        continue
+
+
 
   def convert_to_user_id(self, x):
     x = str(x)
@@ -1140,8 +1216,8 @@ def main():
 
     bot = Instabot('portia_res', 'havas-reasearch')
     bot.login()
+    bot.login_2()
     print("Hello there!")
-    time.sleep(2)
     bot.actions()
 
 
